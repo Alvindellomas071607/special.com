@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1</title>
+    <style>
+       @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&display=swap');
+
+       * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Open Sans', sans-serif;
+
+       }
+    section {
+        position: relative;
+        min-height: 100vh;
+        background: #000;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+}
+    .button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 0 10px;
+            color: white;
+            text-shadow: 2px 2px rgb(116, 116, 116);
+            text-transform: uppercase;
+            cursor: pointer;
+            border: solid 2px black;
+            letter-spacing: 1px;
+            font-weight: 600;
+            font-size: 17px;
+            background-color: blue;
+            border-radius: 50px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.5s ease;
+            bottom: -300px;
+            left:30px;
+        }
+
+        button:active {
+            transform: scale(0.9);
+            transition: all 100ms ease;
+        }
+
+        button img {
+             opacity: 0;
+            transition: all 0.5s ease;
+            z-index: 2;
+        }
+
+        .play {
+            transition: all 0.5s ease;
+            transition-delay: 300ms;
+        }
+
+        button:hover img {
+             opacity: 1;
+            transform: scale(3) translate(50%);
+        }
+
+        .now {
+            position: absolute;
+            left: 0;
+            transform: translateX(-100%);
+            transition: all 0.5s ease;
+            z-index: 2;
+        }
+
+        button:hover .now {
+            transform: translateX(10px);
+            transition-delay: 300ms;
+        }
+
+        button:hover .play {
+            transform: translateX(200%);
+            transition-delay: 300ms;
+        }
+
+    .light {
+
+       position: fixed;
+    top: 0;
+    left: 0; /* Changed 'Left' to 'left' (CSS is case-sensitive) */
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    background: radial-gradient(circle at var(--x, 50%) var(--y, 50%), transparent 10%, rgba(0, 0, 0, 0.95) 20%);
+    /* Provided default values for --x and --y */
+}
+    </style>
+</head>
+<body>
+    
+    <section>
+        <button class="button" id="myButton">
+        <img src="cat-heart.gif" alt="Button Image" width="36" height="36" style="overflow: hidden;">
+        <span class="now">Dea!</span>
+        <span class="play">Hello</span>
+        
+        </button>
+    </section>
+<div class="light"></div>
+<script>
+    var pos = document.documentElement;
+    pos. addEventListener('mousemove', e =>{
+        document.querySelector('.light').style.setProperty('--x', `${e.clientX}px`);
+        document.querySelector('.light').style.setProperty('--y', `${e.clientY}px`);
+        
+});
+    document.getElementById("myButton").onclick = function () {
+        location.href = "http://localhost:8383/PreCal/index.html";
+    };
+    
+</script>
+
+</body>
+</html>
